@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.details {
+  margin-bottom: 2rem;
+}
+
+.custom-table {
+  width: 55%;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #e6ccb2;
+  text-align: left;
+  padding: 0.4rem;
+}
+
+.small-cell {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.medium-cell {
+  max-width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.big-cell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.buttons {
+  margin-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.btn-create-product {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+#btn-new {
+  height: 50%;
+  width: 56.8rem;
+  margin-bottom: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

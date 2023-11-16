@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="details">
+
+    <app-title title="Registrar Conta"></app-title>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <div class="campos">
+
+        <div class="first">
+          <text-input [control]="fc.name" [showErrorsWhen]="isSubmitted" label="Nome"></text-input>
+
+          <text-input [control]="fc.email" [showErrorsWhen]="isSubmitted" label="E-mail" type="email"></text-input>
+
+          <text-input [isPhone]="true" [control]="fc.phone" [showErrorsWhen]="isSubmitted"
+            label="Telefone"></text-input>
+
+          <text-input [control]="fc.password" [showErrorsWhen]="isSubmitted" label="Senha" type="password"></text-input>
+
+          <text-input [control]="fc.confirmPassword" [showErrorsWhen]="isSubmitted" label="Confirmar Senha"
+            type="password"></text-input>
+        </div>
+
+        <div class="second">
+          <text-input [control]="fc.address" [showErrorsWhen]="isSubmitted" label="Endereço"></text-input>
+
+          <text-input [control]="fc.complement" [showErrorsWhen]="isSubmitted" label="Complemento"></text-input>
+
+          <div class="cityUF">
+            <div class="cityUF-one">
+              <text-input [isNumberHouse]="true" [control]="fc.numberHouse" [showErrorsWhen]="isSubmitted"
+                label="Nº"></text-input>
+            </div>
+
+            <div class="cityUF-two">
+              <text-input [isCep]="true" [control]="fc.cep" [showErrorsWhen]="isSubmitted" label="CEP"></text-input>
+            </div>
+          </div>
+
+          <div class="cityUF">
+            <div class="cityUF-one">
+              <text-input [control]="fc.city" [showErrorsWhen]="isSubmitted" label="Cidade"></text-input>
+            </div>
+
+            <div class="cityUF-two">
+              <text-input [isUF]="true" [control]="fc.stateUF" [showErrorsWhen]="isSubmitted" label="UF"></text-input>
+            </div>
+          </div>
+
+          <text-input [control]="fc.district" [showErrorsWhen]="isSubmitted" label="Bairro"></text-input>
+        </div>
+
+      </div>
+
+      <default-button text="Registrar" [mTopRem]="2"></default-button>
+
+      <div class="login">
+        Já é um Usuário? &nbsp;
+        <a routerLink="/login" [queryParams]="{returnUrl: returnUrl}">
+          Entrar Aqui
+        </a>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+.container {
+  margin-top: 1rem;
+  display: flex;
+  margin: 0 2rem 6rem 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.content {
+  width: 40rem;
+  margin-right: 3rem;
+}
+
+.content,
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  width: 100%;
+}
+
+.campos {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.campo-one {
+  width: 60%;
+}
+
+.campo-two {
+  width: 40%;
+  margin-left: 2%;
+}
+
+.summary {
+  width: 100%;
+  border: 1px solid #e6ccb2;
+  margin-top: 1rem;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.summary > div {
+  display: flex;
+  margin-top: 0.7rem;
+}
+
+.summary span {
+  font-size: 1.2rem;
+}
+
+.summary h3 {
+  margin: 0 1rem 0 0;
+  flex-basis: 5rem;
+}
+
+.box-one {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.box-two {
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+}
+
+.box-two h3 {
+  flex-basis: 2.2rem;
+}

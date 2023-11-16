@@ -1,0 +1,51 @@
+.choice-box {
+  border: 1px solid #e6ccb2;
+  background-color: white;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+
+#choice-title {
+  display: flex;
+  justify-content: center;
+}
+
+.choice-method {
+  background-color: white;
+  height: 6rem;
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.choice-method div {
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choice-method label {
+  border: 1px solid #e6ccb2;
+  background-color: #f2f2f2;
+  height: 100%;
+  width: 90%;
+  border-radius: 10rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+i {
+  margin-right: 5px;
+}
+
+input[type="radio"] {
+  appearance: none;
+}
+
+div .selected {
+  background-color: #379c56;
+  color: white;
+}

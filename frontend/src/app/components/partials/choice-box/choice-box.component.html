@@ -1,0 +1,20 @@
+<div class="choice-box">
+  <app-title id="choice-title" title="{{title}}" fontSize="{{fontSize}}"></app-title>
+
+  <div class="choice-method">
+    <div>
+      <label [ngClass]="{'selected': selectedType === firstValue}" (click)="onInputChange(firstValue)">
+        <input type="radio" [(ngModel)]="selectedType" [value]="firstValue" name="{{nameOption}}">
+        {{firstName}}&nbsp;<i class={{firstIcon}}></i>
+      </label>
+    </div>
+
+    <div>
+      <label [ngClass]="{'selected': selectedType === secondValue}" (click)="onInputChange(secondValue)">
+        <input type="radio" [(ngModel)]="selectedType" [value]="secondValue" name="{{nameOption}}">
+        {{secondName}}&nbsp;<i class={{secondIcon}}></i>
+      </label>
+    </div>
+
+  </div>
+</div>

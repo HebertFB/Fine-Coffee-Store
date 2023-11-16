@@ -1,0 +1,61 @@
+<div class="container">
+
+  <app-not-found [visible]="productLoaded && !product" notFoundMessage="Produto Não Encontrado"
+    resetLinkText="Voltar à Página Inicial"></app-not-found>
+
+  <div *ngIf="productLoaded && product?.id" class="content">
+    <img [src]="product.imageUrl" [alt]="product.name" />
+
+    <div class="details">
+
+      <div class="header">
+        <span class="name">
+          {{product.name}}
+        </span>
+      </div>
+
+      <div class="origins">
+        <span *ngFor="let origin of product.origins">
+          {{origin}}
+        </span>
+      </div>
+
+      <div class="description">
+        <p>
+          {{product.description}}
+        </p>
+      </div>
+
+      <div class="tags">
+        <a *ngFor="let tag of product.tags" routerLink="/tag/{{tag}}">
+          {{tag}}
+        </a>
+      </div>
+
+      <div class="preparation-time">
+        <span>
+          Tempo de preparo entre <strong>{{product.preparationTime | mask: '00-00'}}</strong> minutos
+        </span>
+      </div>
+
+      <div class="size">
+        <span>Selecione o Tamanho do Copo</span>
+        <div class="selectSize">
+          <button (click)="selectGlassSize(0)" [class.clicked]="clickedButtonIndex === 0">Pequeno</button>
+          <button (click)="selectGlassSize(1)" [class.clicked]="clickedButtonIndex === 1">Médio</button>
+          <button (click)="selectGlassSize(2)" [class.clicked]="clickedButtonIndex === 2">Grande</button>
+        </div>
+      </div>
+
+      <div class="price">
+        <span>
+          {{ product.price[glassSizeSelected] | currency:'BRL':'symbol':'1.2-2' }}
+        </span>
+      </div>
+
+      <button class="addToCart" *ngIf="!user.isAdmin" (click)="addToCart()">Adicionar ao carrinho <i
+          class="fa-solid fa-cart-arrow-down"></i></button>
+    </div>
+  </div>
+
+</div>

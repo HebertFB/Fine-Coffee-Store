@@ -1,0 +1,54 @@
+<div class="container">
+  <app-title title="Carrinho de Compras" [mTopRem]="1.5" [mRigthRem]="0" [mBottomRem]="0" [mLeftRem]="2.5"></app-title>
+
+  <app-not-found [visible]="!cart || !cart.items.length" notFoundMessage="Seu carrinho está vazio!"
+    resetLinkText="Página Inicial"></app-not-found>
+
+  <div *ngIf="cart && cart.items.length" class="content">
+    <ul>
+      <li *ngFor="let cartItem of cart.items">
+
+        <div>
+          <img [src]="cartItem.product.imageUrl" [alt]="cartItem.product.name">
+        </div>
+
+        <div>
+          <a id="name" routerLink="/product/{{cartItem.product.id}}">
+            {{cartItem.product.name}}
+          </a>
+        </div>
+
+        <div>
+          {{cartItem.glassSize}}
+        </div>
+
+        <div>
+          <button class="btn-quantity" (click)="decrementQuantity(cartItem)"><i
+              class="fa-solid fa-minus fa-xs"></i></button>
+          <div class="quantity">{{ cartItem.quantity }}</div>
+          <button class="btn-quantity" (click)="incrementQuantity(cartItem)"><i
+              class="fa-solid fa-plus fa-xs"></i></button>
+        </div>
+
+        <div id="price-item">
+          {{cartItem.price | currency:'BRL':'symbol':'1.2-2' }}
+        </div>
+
+        <div>
+          <button class="remove-button" (click)="removeFromCart(cartItem, cartItem.glassSizeSelected)"><i
+              class="fa-solid fa-xmark fa-xl"></i></button>
+        </div>
+      </li>
+    </ul>
+
+    <div class="checkout">
+      <div>
+        <div class="products-count">{{cart.totalCount}}</div>
+        <div class="total-price">{{cart.totalPrice | currency:'BRL':'symbol':'1.2-2' }}</div>
+      </div>
+
+      <a routerLink="/checkout">Prosseguir com a Compra</a>
+    </div>
+
+  </div>
+</div>

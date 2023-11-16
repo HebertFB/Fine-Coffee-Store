@@ -1,0 +1,52 @@
+.container {
+  margin-top: 1rem;
+  display: flex;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+
+.content {
+  width: 35rem;
+  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary {
+  height: 100%;
+  padding: 0.6rem;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #e6ccb2;
+}
+
+.summary > div {
+  display: flex;
+}
+
+.summary span {
+  font-size: 1.2rem;
+}
+
+.summary h3 {
+  margin: 0 1rem 0 0;
+  flex-basis: 5rem;
+}
+
+.box-one {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.box-two {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+}
+
+.box-two h3 {
+  flex-basis: 2.2rem;
+}

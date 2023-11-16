@@ -1,0 +1,174 @@
+.container {
+  padding: 1px;
+  margin-bottom: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+#name {
+  color: #176085;
+}
+
+#name:hover {
+  color: #a26f45;
+}
+
+#price-item {
+  color: darkgreen;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  flex: 3 0;
+  justify-content: space-evenly;
+  border: 1px solid #ddb892;
+  border-radius: 1rem;
+  list-style: none;
+  margin: 0.5rem;
+  padding: 0;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+ul li:last-child {
+  border: none;
+}
+
+li img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100rem;
+  object-fit: cover;
+}
+
+li div {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+li div:not(:first-child) {
+  flex-basis: 18%;
+}
+
+li select {
+  width: 3rem;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  font-size: 1.1rem;
+  font-weight: 100;
+}
+
+div .quantity {
+  text-align: center;
+  font-size: 1.1rem;
+  max-height: 2rem;
+  max-width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-quantity {
+  border: 1px solid;
+  opacity: 0.7;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.btn-quantity:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  color: #a26f45;
+}
+
+li .remove-button {
+  border-radius: 5rem;
+  border: none;
+  padding: 0.5rem;
+  color: #e72929;
+  opacity: 0.7;
+  outline: none;
+}
+
+li .remove-button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 3;
+  height: 20rem;
+  border: 1px solid #ddb892;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.checkout > div {
+  font-size: 1.4rem;
+  margin: 1rem;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.products-count {
+  margin-bottom: 1.5rem;
+}
+
+.products-count::before {
+  content: "Itens: ";
+  color: #4b382a;
+}
+
+.total-price {
+  color: darkgreen;
+}
+
+.total-price::before {
+  content: "Preço: ";
+  color: #4b382a;
+}
+
+.checkout a {
+  font-size: 1.4rem;
+  padding: 0.75rem;
+  color: white;
+  background: #a26f45;
+  display: block;
+  width: 99%;
+  border-radius: 1rem;
+  text-align: center;
+  opacity: 0.7;
+  justify-self: center;
+}
+
+.checkout a:hover {
+  opacity: 1;
+  cursor: pointer;
+}

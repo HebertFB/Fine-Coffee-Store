@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="details">
+    <app-title title="Criar Produto"></app-title>
+
+    <form [formGroup]="productForm" (ngSubmit)="submit()">
+      <div class="campos">
+
+        <div class="first">
+
+          <text-input [control]="fc.name" [showErrorsWhen]="isSubmitted" label="Nome"></text-input>
+          <text-input [control]="fc.description" [showErrorsWhen]="isSubmitted" label="Descrição"></text-input>
+          <text-input [control]="fc.imageUrl" [showErrorsWhen]="isSubmitted" label="Url da Imagem"></text-input>
+
+          <text-input [isText]="true" [control]="fc.tags" [showErrorsWhen]="isSubmitted" label="Tag 1"></text-input>
+          <text-input [isText]="true" [control]="fc.tagsTwo" [showErrorsWhen]="isSubmitted" label="Tag 2"></text-input>
+
+        </div>
+
+        <div class="second">
+
+          <text-input [isPrice]="true" [control]="fc.priceP" [showErrorsWhen]="isSubmitted"
+            label="Preço do copo Pequeno"></text-input>
+          <text-input [isPrice]="true" [control]="fc.priceM" [showErrorsWhen]="isSubmitted"
+            label="Preço do copo Médio"></text-input>
+          <text-input [isPrice]="true" [control]="fc.priceG" [showErrorsWhen]="isSubmitted"
+            label="Preço do copo Grande"></text-input>
+
+          <text-input [control]="fc.origins" [showErrorsWhen]="isSubmitted" label="Origem Culinária"></text-input>
+          <text-input [isPreparationTime]="true" [control]="fc.preparationTime" [showErrorsWhen]="isSubmitted"
+            label="Tempo de Preparação"></text-input>
+        </div>
+
+      </div>
+
+      <div class="buttons">
+        <default-button text="Criar Produto" [mTopRem]="2"></default-button>
+        <default-button text="Cancelar" [mTopRem]="2" bgColor="#e72929" [routerLink]="['/manage-products']"
+          routerLinkActive="router-link-active"></default-button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+<br>

@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.details {
+  margin-bottom: 2rem;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #e6ccb2;
+  text-align: left;
+  padding: 0.4rem;
+}
+
+.medium-cell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.big-cell {
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#checkbox {
+  text-align: center;
+}
+
+#checkbox input {
+  margin: 0;
+  vertical-align: middle;
+}
+
+.buttons {
+  margin-left: 2rem;
+  display: flex;
+  justify-content: space-between;
+}

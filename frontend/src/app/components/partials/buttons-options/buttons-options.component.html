@@ -1,0 +1,11 @@
+<div class="buttons-container">
+  <div class="buttons" [ngStyle]="{'width.rem': widthRem, 'margin.rem': marginRem}">
+    <button class="btn-options" [ngStyle]="{color: color1, 'background-color': bgColor1}"
+      [routerLink]="routerlinkButtonOne">{{nameButtonOne}}</button>
+  </div>
+
+  <div *ngIf="isButtonTwo" class="buttons" [ngStyle]="{'width.rem': widthRem, 'margin.rem': marginRem}">
+    <button class="btn-options" [ngStyle]="{color: color2, 'background-color': bgColor2}"
+      [routerLink]="routerlinkButtonTwo">{{nameButtonTwo}}</button>
+  </div>
+</div>

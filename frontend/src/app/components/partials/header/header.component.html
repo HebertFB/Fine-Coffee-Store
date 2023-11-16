@@ -1,0 +1,42 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo"><i class="fa-solid fa-mug-hot"></i> Fine Coffee!</a>
+    <nav>
+      <ul>
+
+        <li id="about">
+          <a routerLink="/about">Sobre</a>
+        </li>
+
+        <li *ngIf="!isAuth">
+          <a routerLink="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Entrar</a>
+        </li>
+
+        <li *ngIf="isAuth" class="menu-container">
+          <a>{{user.name}}</a>
+          <div class="menu">
+            <a routerLink="/profile"><i class="fa-regular fa-user fa-xs"></i> Perfil</a>
+            <a *ngIf="!user.isAdmin" routerLink="/orders"><i class="fa-regular fa-rectangle-list fa-xs"></i> Pedidos</a>
+            <a *ngIf="user.isAdmin" routerLink="/manage-orders"><i class="fa-solid fa-bars-progress fa-xs"></i>
+              Gerenciar
+              Pedidos</a>
+            <a *ngIf="user.isAdmin" routerLink="/manage-products"><i class="fa-solid fa-gear fa-xs"></i> Gerenciar
+              Produtos</a>
+            <a *ngIf="user.isAdmin" routerLink="/new-admin"><i class="fa-solid fa-user-tie  fa-xs"></i> Novo Admin</a>
+            <a (click)="logout()"><i class="fa-solid fa-door-open fa-xs"></i> Sair</a>
+          </div>
+        </li>
+
+        <li *ngIf="!user.isAdmin && isAuth">
+          <a id="cart" routerLink="/cart-page"><i class="fas fa-shopping-cart fa-lg"></i><span
+              *ngIf="cartQuantity">{{cartQuantity}}</span>
+          </a>
+        </li>
+
+        <li *ngIf="user.isAdmin" id="admin">
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</header>

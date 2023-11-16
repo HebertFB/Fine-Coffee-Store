@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="details">
+
+    <app-title title="Gerenciar Produtos" fontSize="1.6rem"></app-title>
+
+    <app-not-found [visible]="productsLoaded && isEmpty " notFoundMessage="Nenhum Produto Encontrado"
+      resetLinkText="Página Inicial"></app-not-found>
+
+    <table *ngIf="productsLoaded && !isEmpty" class="custom-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Tamanhos de Copo</th>
+          <th>Descrição</th>
+          <th>Tags</th>
+          <th>Url da Image</th>
+          <th>Origem Culinária</th>
+          <th>Tempo de Preparação</th>
+          <div class="buttons">
+            <default-button text="Novo Produto" [fontSizeRem]="1.15" [heightRem]="2.2" [widthRem]="8.6" [mTopRem]="0"
+              bgColor="#009e84" [routerLink]="['/create-product']"
+              routerLinkActive="router-link-active"></default-button>
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td class="big-cell">{{ product.name }}</td>
+          <td class="small-cell">{{ product.price }}</td>
+          <td class="big-cell">{{ product.glassSize }}</td>
+          <td class="big-cell">{{ product.description }}</td>
+          <td class="medium-cell">{{ product.tags }}</td>
+          <td class="big-cell">{{ product.imageUrl }}</td>
+          <td class="medium-cell">{{ product.origins }}</td>
+          <td class="small-cell">{{product.preparationTime | mask: '00-00'}}</td>
+
+          <div class="buttons">
+            <default-button text="Editar" [fontSizeRem]="1.05" [heightRem]="1.6" [widthRem]="4" [mTopRem]="0"
+              bgColor="#F4C624" [routerLink]="['/update-product', product.id]"></default-button>
+
+            <default-button id="delete" text="Excluir" [fontSizeRem]="1" [heightRem]="1.6" [widthRem]="4" [mTopRem]="0"
+              bgColor="#F94449" (click)="showDeleteProductAlert(product.id, product.name)"></default-button>
+          </div>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="productsLoaded && isEmpty" id="btn-new">
+      <default-button text="Novo Produto" [fontSizeRem]="1.5" [heightRem]="3" [widthRem]="11" bgColor="#009e84"
+        [routerLink]="['/create-product']" routerLinkActive="router-link-active"></default-button>
+    </div>
+
+  </div>
+</div>

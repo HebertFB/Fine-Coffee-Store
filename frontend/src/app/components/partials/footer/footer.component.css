@@ -1,0 +1,33 @@
+footer {
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.container {
+  font-size: 1rem;
+  color: #737373;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container p {
+  margin: 0;
+}
+
+.container a {
+  color: #737373;
+}
+.container a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+a:active,
+a:focus,
+a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}

@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="content">
+
+    <div *ngIf="profileLoaded && !isUpdateProfile">
+      <app-title title="Perfil" fontSize="1.6rem"></app-title>
+
+      <div class="summary">
+        <div>
+          <h3>Nome</h3>
+          <span>{{user.name}}</span>
+        </div>
+
+        <div>
+          <h3>Telefone</h3>
+          <span>{{user.phone | mask: '(00) 00000-0000'}}</span>
+        </div>
+
+        <div>
+          <h3>E-mail</h3>
+          <span>{{user.email}}</span>
+        </div>
+
+        <div class="box">
+          <div class="box-one">
+            <h3>Endereço</h3>
+            <span>{{user.address}}</span>
+          </div>
+
+          <div class="box-two">
+            <h3>N°</h3><span>{{user.numberHouse}}</span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-one">
+            <h3>Cidade</h3>
+            <span>{{user.city}}</span>
+          </div>
+
+          <div class="box-two">
+            <h3>UF</h3>
+            <span>{{user.stateUF}}</span>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-one">
+            <h3>Bairro</h3>
+            <span>{{user.district}}</span>
+          </div>
+
+          <div class="box-two">
+            <h3>CEP</h3>
+            <span>{{user.cep | mask: '00000-000'}}</span>
+          </div>
+        </div>
+
+        <div>
+          <h3>Complemento</h3>
+          <span>{{user.complement}}</span>
+        </div>
+
+      </div>
+
+      <default-button text="Atualizar Perfil" bgColor="#a7afb2" [mTopRem]="3"
+        (onClick)="callUpdateForm()"></default-button>
+      <default-button text="Excluir Perfil" bgColor="#e72929" [mTopRem]="6"
+        (onClick)="deleteUser(user.id.toString())"></default-button>
+    </div>
+
+
+    <div *ngIf="profileLoaded && isUpdateProfile">
+      <app-title title="Atualizar Perfil" fontSize="1.6rem"></app-title>
+
+      <form [formGroup]="updateForm" (ngSubmit)="submit()">
+
+        <text-input [control]="fc.name" label="Nome"></text-input>
+
+        <text-input [isPhone]="true" [control]="fc.phone" [showErrorsWhen]="isSubmitted" label="Telefone"></text-input>
+
+        <text-input [control]="fc.complement" [showErrorsWhen]="isSubmitted" label="Complemento"></text-input>
+
+        <div class="campos">
+          <div class="campo-one">
+            <text-input [control]="fc.address" [showErrorsWhen]="isSubmitted" label="Endereço"></text-input>
+          </div>
+
+          <div class="campo-two">
+            <text-input [isNumberHouse]="true" [control]="fc.numberHouse" [showErrorsWhen]="isSubmitted"
+              label="N°"></text-input>
+          </div>
+        </div>
+
+        <div class="campos">
+          <div class="campo-one">
+            <text-input [control]="fc.city" [showErrorsWhen]="isSubmitted" label="Cidade"></text-input>
+          </div>
+
+          <div class="campo-two">
+            <text-input [isUF]="true" [control]="fc.stateUF" [showErrorsWhen]="isSubmitted" label="UF"></text-input>
+          </div>
+        </div>
+
+        <div class="campos">
+          <div class="campo-one">
+            <text-input [control]="fc.district" [showErrorsWhen]="isSubmitted" label="Bairro"></text-input>
+          </div>
+
+          <div class="campo-two">
+            <text-input [isCep]="true" [control]="fc.cep" [showErrorsWhen]="isSubmitted" label="CEP"></text-input>
+          </div>
+        </div>
+
+        <default-button text="Atualizar" bgColor="#379c56" [mTopRem]="2"></default-button>
+
+      </form>
+    </div>
+
+  </div>
+</div>

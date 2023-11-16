@@ -1,0 +1,11 @@
+<div class="box-container">
+  <div class="buttons-container">
+    <div class="buttons" *ngIf="typeOption === 'Cartão'">
+      <paypal-button [typePayment]="typePay" [order]="order"></paypal-button>
+    </div>
+
+    <div class="buttons" *ngIf="typeOption === 'Dinheiro'">
+      <cash-button [typePayment]="typePay" [order]="order" [name]="name"></cash-button>
+    </div>
+  </div>
+</div>

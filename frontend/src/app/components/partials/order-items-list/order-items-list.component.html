@@ -1,0 +1,61 @@
+<table>
+
+  <tr>
+    <td colspan="5">
+      <h3>Itens do Pedido:</h3>
+    </td>
+  </tr>
+
+  <tr *ngFor="let item of order.items">
+    <td>
+      <a routerLink="/product/{{item.product.id}}">
+        <img [src]="item.product.imageUrl" />
+      </a>
+    </td>
+
+    <td>
+      {{item.product.name}}
+    </td>
+
+    <td>
+      {{item.glassSize}}
+    </td>
+
+    <td>
+      {{item.quantity}}
+    </td>
+
+    <td class="price">
+      {{item.price | currency:'BRL':'symbol':'1.2-2' }}
+    </td>
+  </tr>
+
+  <tr *ngIf="order.deliveryTax">
+    <td colspan="3"></td>
+
+    <td>
+      <strong>Taxa de Entrega:</strong>
+    </td>
+
+    <td class="price">
+      <strong>{{order.deliveryTax | currency:'BRL':'symbol':'1.2-2' }}</strong>
+    </td>
+  </tr>
+
+  <tr>
+    <td colspan="3"></td>
+
+    <td>
+      <strong>Total:</strong>
+    </td>
+
+    <td *ngIf="!order.deliveryTax" class="price">
+      <strong>{{order.totalPrice | currency:'BRL':'symbol':'1.2-2' }}</strong>
+    </td>
+
+    <td *ngIf="order.deliveryTax" class="price">
+      <strong>{{order.totalPrice + order.deliveryTax | currency:'BRL':'symbol':'1.2-2' }}</strong>
+    </td>
+  </tr>
+
+</table>

@@ -1,0 +1,82 @@
+.container {
+  padding: 1px;
+  margin-bottom: 1rem;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+li a {
+  height: 25.7rem;
+  width: 20rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #75442a;
+  background-color: #fff;
+  border: 1px solid #b08968;
+}
+
+li a:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+li a img {
+  object-fit: cover;
+  height: 14.5rem;
+}
+
+.content {
+  margin-top: 0.3rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  height: 9rem;
+}
+
+.preparation-time {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-style: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.tags span {
+  border-radius: 2rem;
+  background-color: whitesmoke;
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #4180a6;
+  margin-right: 0.3rem;
+  padding: 0 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.description {
+  color: black;
+  font-size: 0.9rem;
+  height: 5rem;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.origins span {
+  border-radius: 2rem;
+  background-color: whitesmoke;
+  display: inline-block;
+  font-size: 0.8rem;
+  color: grey;
+  margin-right: 0.3rem;
+  padding: 0 0.5rem;
+  margin-top: 0.4rem;
+}

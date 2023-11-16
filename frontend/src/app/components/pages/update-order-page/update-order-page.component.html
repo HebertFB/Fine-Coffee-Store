@@ -1,0 +1,137 @@
+<div class="container">
+  <div class="content">
+
+    <app-title title="Atualizar Pedido" fontSize="1.6rem" [mBottomRem]="-1"></app-title>
+
+    <app-not-found [visible]="ordersLoaded && isEmpty " notFoundMessage="Pedido Não Encontrado"
+      resetLinkText="Gerenciar Pedidos" resetLinkRoute="/manage-orders"></app-not-found>
+
+    <div class="summary" *ngIf="ordersLoaded && !isEmpty">
+
+      <div class="box">
+        <div class="first-line">
+          <div class="id">
+            <span><strong>Nº </strong>{{order.id}}</span>
+          </div>
+
+          <div class="status" *ngIf="order.deliveryAddress === 'Retirada'">
+            <label><strong>Status do Pedido </strong></label>
+            <select [(ngModel)]="selectedStatus">
+              <option *ngFor="let status of orderStatusOptionsWithdrawal" [value]="status">{{ status }}
+              </option>
+            </select>
+          </div>
+
+          <div class="status" *ngIf="order.deliveryAddress === 'Delivery'">
+            <label><strong>Status do Pedido </strong></label>
+            <select [(ngModel)]="selectedStatus">
+              <option *ngFor="let status of orderStatusOptionsDelivery" [value]="status">{{ status }}</option>
+            </select>
+          </div>
+
+          <div class="date">
+            <span><strong>Data do Pedido </strong>{{order.createdAt | date:'dd/MM/yyyy, HH:mm:ss'}}</span>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="line1">
+            <div class="first-line">
+              <div class="type-payment">
+                <span><strong>Tipo de Pagamento </strong>{{order.typePayment}}</span>
+              </div>
+
+              <div class="infor-two">
+                <span><strong>Status de Pagamento </strong>{{order.statusPayment}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="line2">
+            <div class="last-line">
+              <div class="infor-one">
+                <span><strong>Forma de Entrega </strong>{{order.deliveryAddress}}</span>
+              </div>
+
+              <div class="payment-id">
+                <span><strong>Pagamento Nº </strong>{{order.paymentId}}</span>
+              </div>
+
+            </div>
+
+            <div class="price">
+              <span><strong>Preço </strong>{{order.totalPriceToPay | currency:'BRL':'symbol':'1.2-2' }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="user">
+          <div class="user-lines">
+            <div class="box-user">
+              <div class="first-line">
+                <div class="infor-one">
+                  <span><strong>Cliente: </strong>{{order.name}}</span>
+                </div>
+
+                <div class="infor-two">
+                  <span><strong>Telefone: </strong>{{order.phone | mask: '(00) 00000-0000'}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-user">
+              <div class="first-line">
+                <div class="infor-one">
+                  <span><strong>Endereço: </strong>{{order.address}}</span>
+                </div>
+
+                <div class="user-second-column">
+                  <span><strong>Bairro: </strong>{{order.district}}</span>
+                </div>
+
+                <div class="infor-two">
+                  <span><strong>N°: </strong>{{order.numberHouse}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-user">
+              <div class="first-line">
+                <div class="infor-one">
+                  <span><strong>Cidade: </strong>{{order.city}}</span>
+                </div>
+
+                <div class="user-second-column">
+                  <span><strong>CEP: </strong>{{order.cep | mask: '00000-000'}}</span>
+                </div>
+
+                <div class="infor-two">
+                  <span><strong>UF: </strong>{{order.stateUF}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="box-user">
+              <span><strong>Complemento: </strong>{{order.complement}}</span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="buttons">
+          <default-button text="Atualizar Pedido" [fontSizeRem]="1" [heightRem]="1.8" [widthRem]="10" bgColor="#009e84"
+            (click)="showUpdateOrderAlert(order.id.toString())"></default-button>
+
+          <default-button *ngIf="order.typePayment === 'Dinheiro' && order.statusPayment != 'PAGO'"
+            text="Confirma Pagamento" [fontSizeRem]="1" [heightRem]="1.8" [widthRem]="12" bgColor="#009e84"
+            (click)="showConfirmPayAlert(order.id.toString())"></default-button>
+        </div>
+      </div>
+
+    </div>
+    <buttons-options *ngIf="ordersLoaded && !isEmpty" bgColor1="#a7afb2" routerlinkButtonOne="/manage-orders"
+      nameButtonOne="Gerenciar Pedidos"></buttons-options>
+  </div>
+
+
+</div>

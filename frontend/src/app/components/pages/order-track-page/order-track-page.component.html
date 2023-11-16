@@ -1,0 +1,33 @@
+<div class="container">
+
+  <app-not-found [visible]="orderLoaded && !order" notFoundMessage="Pedido Não Encontrado"
+    resetLinkText="Página Inicial"></app-not-found>
+
+  <div class="content" *ngIf="orderLoaded && order">
+
+    <h1>Pedido Nº {{order.id}}</h1>
+
+    <div class="details"
+      [ngClass]="{'finalized-order': isOrderFinalized(order.statusOrder),'canceled-order': isOrderCanceled(order.statusOrder)}">
+      <div><strong>Status do Pedido</strong> {{order.statusOrder}}</div>
+      <div><strong>Data do Pedido</strong> {{order.createdAt | date:'dd/MM/yyyy, HH:mm:ss' }}</div>
+      <div><strong>Atualização do Pedido</strong> {{order.updatedAt | date:'dd/MM/yyyy, HH:mm:ss' }}</div>
+      <div><strong>Nome</strong> {{order.name}}</div>
+      <div><strong>Forma de Entrega</strong> {{order.deliveryAddress}}</div>
+      <div><strong>Tipo de Pagamento</strong> {{order.typePayment}}</div>
+      <div><strong>Status de Pagamento</strong> {{order.statusPayment}}</div>
+      <div *ngIf="order.paymentId">
+        <strong>Pagamento Nº</strong> {{order.paymentId}}
+      </div>
+    </div>
+
+    <order-items-list [order]="order"></order-items-list>
+
+    <buttons-options *ngIf="!user.isAdmin" routerlinkButtonOne="/" nameButtonOne="Página Inicial" bgColor1="#a26f45"
+      [isButtonTwo]=true routerlinkButtonTwo="/orders" nameButtonTwo="Pedidos" bgColor2="#a7afb2"></buttons-options>
+
+    <buttons-options *ngIf="user.isAdmin" routerlinkButtonOne="/manage-orders" bgColor1="#a7afb2"
+      nameButtonOne="Gerenciar Pedidos"></buttons-options>
+
+  </div>
+</div>

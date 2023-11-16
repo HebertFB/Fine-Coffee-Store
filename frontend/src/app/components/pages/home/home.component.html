@@ -1,0 +1,47 @@
+<div class="container">
+
+  <app-search></app-search>
+  <app-tags></app-tags>
+
+  <app-not-found [visible]="productsLoaded && (!products || !products.length)"
+    notFoundMessage="Nenhum Produto Encontrado" resetLinkText="Redefinir Pesquisa"></app-not-found>
+
+  <ul>
+    <li *ngFor="let product of products">
+      <a routerLink="/product/{{product.id}}">
+        <img [src]="product.imageUrl" [alt]="product.name">
+        <div class="content">
+
+          <div class="name">
+            {{product.name}}
+          </div>
+
+          <div class="preparation-time">
+            <span>🕒</span>
+            {{product.preparationTime| mask: '00-00'}}
+          </div>
+
+          <div class="tags">
+            <span *ngFor="let tag of product.tags" routerLink="/tag/{{tag}}">
+              {{tag}}
+            </span>
+          </div>
+
+          <div class="description">
+            <span>
+              {{product.description}}
+            </span>
+          </div>
+
+          <div class="origins">
+            <span *ngFor="let origin of product.origins">
+              {{origin}}
+            </span>
+          </div>
+
+        </div>
+      </a>
+    </li>
+  </ul>
+
+</div>

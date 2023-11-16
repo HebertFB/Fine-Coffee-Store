@@ -1,0 +1,156 @@
+.container {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3.4rem;
+}
+
+.content {
+  width: 58.4rem;
+  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.await-order {
+  height: 18.9rem !important;
+}
+
+.finalized-order {
+  background-color: #009e842d;
+}
+
+.canceled-order {
+  background-color: #f9444a31;
+}
+
+.summary {
+  height: 17.4rem;
+  width: 100%;
+  border: 1px solid #e6ccb2;
+  margin-top: 2rem;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.summary span {
+  font-size: 1.2rem;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.first-line {
+  display: flex;
+  flex-direction: row;
+}
+
+.id {
+  width: 35%;
+}
+
+.status {
+  width: 32%;
+}
+
+.date {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.date span {
+  font-size: 1.1rem;
+}
+
+.line-items {
+  margin: 1rem 0 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.table {
+  border-radius: 5px;
+  padding: 0.5rem 0.6125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.table img {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 1.6rem;
+  object-fit: cover;
+}
+
+.footer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.type-payment {
+  width: 35.1%;
+}
+
+.line1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.line2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.infor-one {
+  width: 43.8%;
+}
+
+.payment-id {
+  width: 56.2%;
+}
+
+.last-line {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.price {
+  position: relative;
+  width: 20%;
+  color: green;
+}
+
+.price span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.price strong {
+  color: #4b382a;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="content">
+
+    <app-title title="Forma de Entrega" fontSize="1.6rem" [mBottomRem]="0"></app-title>
+
+    <order-items-list [order]="order"></order-items-list>
+
+    <choice-box [title]="'Escolha um método de entrega'" [fontSize]="'1.2rem'" [selectedType]="deliveryAtHome"
+      [firstValue]="'false'" [firstIcon]="'fa-solid fa-map-location-dot'" [firstName]="'Retirar na Cafeteria'"
+      [nameOption]="'deliveryOption'" [secondIcon]="'fa-solid fa-truck-fast'" [secondValue]="'true'"
+      [secondName]="'Entregar Delivery'" (selectedTypeChange)="onSelectedTypeChange($event)"></choice-box>
+
+    <form *ngIf="deliveryAtHome" [formGroup]="checkoutForm">
+      <text-input [control]="fc.address" label="Endereço"></text-input>
+      <text-input [isNumberHouse]="true" [control]="fc.numberHouse" label="N°"></text-input>
+      <text-input [control]="fc.city" label="Cidade"></text-input>
+      <text-input [isCep]="true" [control]="fc.cep" label="CEP"></text-input>
+      <text-input [isUF]="true" [control]="fc.stateUF" label="UF"></text-input>
+      <text-input [control]="fc.district" label="Bairro"></text-input>
+      <text-input [control]="fc.complement" label="Complemento"></text-input>
+    </form>
+
+    <buttons-options nameButtonOne="Prosseguir" bgColor1="#379c56" (click)="createOrder()"></buttons-options>
+
+    <buttons-options nameButtonOne="Cancelar" (click)="clearCart()"></buttons-options>
+
+  </div>
+</div>

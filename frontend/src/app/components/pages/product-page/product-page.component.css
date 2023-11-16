@@ -1,0 +1,158 @@
+.container {
+  padding: 1px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 3rem;
+}
+
+.content > * {
+  min-width: 25rem;
+  max-width: 40rem;
+}
+
+img {
+  background-color: white;
+  border: 1.5px solid #e6ccb2;
+  border-radius: 3rem;
+  flex: 1 0;
+  object-fit: cover;
+  height: 35rem;
+  margin: 1rem;
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  padding: 2rem;
+  color: black;
+  margin-left: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #322015;
+}
+
+.origins {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0 0 0;
+}
+
+.origins span {
+  padding: 0.6rem 0.8rem;
+  font-size: 1.2rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border-radius: 2rem;
+  background-color: aliceblue;
+}
+
+.description {
+  font-size: 1rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0 0.4rem 0;
+}
+
+.description p {
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tags a {
+  background-color: #f0f0f0;
+  padding: 0.2rem 1rem;
+  margin: 0.5rem 0.15rem;
+  border-radius: 10rem;
+  font-weight: 600;
+  color: #4180a6;
+}
+
+.preparation-time {
+  margin-top: 1rem;
+}
+
+.preparation-time span {
+  padding: 0.6rem 2rem 0.6rem 0;
+  border-radius: 10rem;
+  font-size: 1.3rem;
+}
+
+.size {
+  border: 1px solid #b08968;
+  margin: 1rem 0 1rem 0;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.selectSize {
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.selectSize button {
+  color: white;
+  background: #d4d7d7;
+  border: none;
+  font-size: 1rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.6rem;
+  outline: none;
+}
+
+.selectSize button.clicked {
+  background-color: #ad8b73;
+  color: #ffffff;
+}
+
+.price {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: green;
+}
+
+.price::before {
+  content: "Preço: ";
+  color: #322015;
+}
+
+.addToCart {
+  color: white;
+  background: #a26f45;
+  border: none;
+  font-size: 1.4rem;
+  padding: 1rem;
+  border-radius: 10rem;
+  outline: none;
+  opacity: 0.8;
+}
+
+button:hover {
+  opacity: 1;
+  cursor: pointer;
+}

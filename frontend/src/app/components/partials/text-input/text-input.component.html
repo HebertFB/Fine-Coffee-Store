@@ -1,0 +1,25 @@
+<input-container [label]="label">
+
+  <input *ngIf="isCep" [type]="type" [placeholder]="label" [formControl]="formControl" mask="00000-000" />
+
+  <input *ngIf="isPhone" [type]="type" [placeholder]="label" [formControl]="formControl" mask="(00) 00000-0000" />
+
+  <input *ngIf="isUF" [type]="type" [placeholder]="label" [formControl]="formControl" mask="AA"
+    [patterns]="customPatterns" />
+
+  <input *ngIf="isText" [type]="type" [placeholder]="label" [formControl]="formControl" mask="A*"
+    [patterns]="customPatterns" />
+
+  <input *ngIf="isNumberHouse" [type]="type" [placeholder]="label" [formControl]="formControl" mask="0*" />
+
+  <input *ngIf="isPrice" [type]="type" [placeholder]="label" [formControl]="formControl" mask="09" />
+
+  <input *ngIf="isPreparationTime" [type]="type" [placeholder]="label" [formControl]="formControl" mask="00-00"
+    [showMaskTyped]="true" />
+
+  <input *ngIf="!isCep && !isPhone && !isUF && !isNumberHouse && !isText && !isPreparationTime && !isPrice"
+    [type]="type" [placeholder]="label" [formControl]="formControl" />
+
+  <input-validation [control]="control" [showErrorsWhen]="showErrorsWhen"></input-validation>
+
+</input-container>

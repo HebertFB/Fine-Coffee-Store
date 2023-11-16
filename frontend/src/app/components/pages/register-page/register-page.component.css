@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.details {
+  margin-top: 3rem;
+  width: 75rem;
+}
+
+.login {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.campos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.first {
+  width: 45%;
+}
+
+.second {
+  width: 45%;
+  margin-left: 5%;
+}
+
+.cityUF {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.cityUF-one {
+  width: 49%;
+}
+
+.cityUF-two {
+  width: 49%;
+  margin-left: 2%;
+}
+
+.login a {
+  color: #3366cc;
+}
+
+.login a:hover {
+  color: #529cca;
+}

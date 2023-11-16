@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="details">
+
+    <app-title title="Gerenciar Usuários Administradores" fontSize="1.6rem"></app-title>
+
+    <app-not-found [visible]="usersLoaded && isEmpty" notFoundMessage="Nenhum Usuário Encontrado"
+      resetLinkText="Página Inicial"></app-not-found>
+
+    <table class="custom-table" *ngIf="usersLoaded && !isEmpty">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>E-mail</th>
+          <th>Owner</th>
+          <th>Admin</th>
+          <th>Novo Admin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td class="medium-cell">{{ user.name }}</td>
+          <td class="medium-cell">{{ user.phone | mask: '(00) 00000-0000'}}</td>
+          <td class="big-cell">{{ user.email }}</td>
+          <td class="medium-cell">{{ user.isOwner }}</td>
+          <td class="medium-cell">{{ user.isAdmin }}</td>
+          <td class="medium-cell" id="checkbox"><input *ngIf="!user.isOwner" type="checkbox" [(ngModel)]="user.isAdmin"
+              (ngModelChange)="updateIsChecked($event)" /></td>
+
+          <div *ngIf="!user.isOwner" class="buttons">
+            <default-button text="Atualizar" [fontSizeRem]="1.1" [heightRem]="1.6" [widthRem]="6" [mTopRem]="0"
+              (click)="showUpdateUserAdminAlert(user.id, user.name)"></default-button>
+          </div>
+
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.content {
+  width: 35rem;
+  margin-right: 3rem;
+}
+
+.content,
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  width: 100%;
+  margin-top: 2rem;
+}
