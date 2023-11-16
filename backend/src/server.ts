@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
+import path from 'path';
 import express from "express";
 import cors from "cors";
 import productRouter from "./routers/product.router";
@@ -20,7 +21,12 @@ app.use("/api/products", productRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 
-const port = 5000;
+app.use(express.static('public'));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
+
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
-    console.log("Web server on http://localhost:" + port);
+    console.log("Website served on http://localhost:" + port);
 })
