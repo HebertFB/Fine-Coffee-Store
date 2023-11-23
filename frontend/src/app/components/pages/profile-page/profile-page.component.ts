@@ -37,7 +37,6 @@ export class ProfilePageComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.loadProfile();
-    this.profileLoaded = true;
   }
 
   async loadProfile(): Promise<void> {
@@ -73,6 +72,7 @@ export class ProfilePageComponent implements OnInit {
         (error) => {
           reject(error);
         });
+      this.profileLoaded = true;
     });
   }
 
@@ -92,7 +92,7 @@ export class ProfilePageComponent implements OnInit {
     return text.toLowerCase().replace(/(^|\s)\S/g, match => match.toUpperCase());
   }
 
-  submit() {
+  async submit() {
     this.isSubmitted = true;
 
     if (this.updateForm.invalid) return;
@@ -112,12 +112,37 @@ export class ProfilePageComponent implements OnInit {
       complement: this.toCapitalize(fv.complement)
     };
 
-    this.userService.update(userId, user).subscribe(_ => {
+    this.userService.update(userId, user).subscribe(async _ => {
+      await this.loadProfile();
       this.user = this.userService.currentUser;
       this.router.navigateByUrl(this.returnUrl);
     });
 
     this.callUpdateForm();
+  }
+
+  showUpdateUserAlert() {
+    const message = `${this.user.name} tem certeza que deseja atualizar sua conta?`;
+
+    Swal.fire({
+      title: 'Atenção!!',
+      html: message.replace(/\n/g, '<br>'),
+      icon: 'question',
+      showCancelButton: true,
+      showCloseButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Não',
+      confirmButtonText: 'Sim'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await this.submit();
+      }
+      else {
+        await this.loadProfile();
+        this.callUpdateForm();
+      }
+    });
   }
 
   async deleteUser(userId: string) {
