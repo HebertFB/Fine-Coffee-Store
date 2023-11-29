@@ -116,11 +116,18 @@ export class OrdersPageComponent implements OnInit {
       statusPayment: '',
     }
 
-    if (typePayment === 'Dinheiro') {
+    if (typePayment === 'Dinheiro' && !paymentId) {
       order = {
         statusOrder: 'CANCELADO',
         paymentId: paymentId,
         statusPayment: 'CANCELADO',
+      }
+    }
+    if (typePayment === 'Dinheiro' && paymentId) {
+      order = {
+        statusOrder: 'CANCELADO',
+        paymentId: paymentId,
+        statusPayment: 'REEMBOLSADO',
       }
     }
     if (typePayment === 'Cartão') {
